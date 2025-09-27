@@ -454,3 +454,97 @@ html {
 	color: rgb(220, 220, 220) !important; /* Force light grey/white for dark mode */
 	stroke: rgb(220, 220, 220) !important;
 }
+
+/* Simplified theme toggle styling */
+.theme-option {
+    position: relative;
+}
+
+/* Smooth dropdown animations */
+@keyframes slide-in-from-top-2 {
+    from {
+        opacity: 0;
+        transform: translateY(-8px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.animate-in {
+    animation-fill-mode: both;
+}
+
+.slide-in-from-top-2 {
+    animation-name: slide-in-from-top-2;
+}
+
+.duration-200 {
+    animation-duration: 200ms;
+}
+
+/* Simple theme button hover */
+.theme-toggle-button:hover {
+    transform: translateY(-1px);
+}
+
+/* Terminal fixed size styling */
+.terminal-window {
+    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
+    overflow: hidden;
+    resize: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.terminal-container {
+    font-family: 'JetBrains Mono', 'Fira Code', 'Monaco', 'Consolas', monospace;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.terminal-header {
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.terminal-content {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgb(var(--muted)) transparent;
+}
+
+/* Custom scrollbar for webkit browsers */
+.terminal-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.terminal-content::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.terminal-content::-webkit-scrollbar-thumb {
+    background: rgb(var(--muted));
+    border-radius: 3px;
+}
+
+.terminal-content::-webkit-scrollbar-thumb:hover {
+    background: rgb(var(--muted-foreground));
+}
+
+/* Prevent terminal from expanding */
+.terminal-lines {
+    min-height: 0;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}

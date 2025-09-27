@@ -70,59 +70,64 @@
     <div class="mx-auto max-w-4xl space-y-8 text-center">
       <!-- Terminal-style header -->
       <div
-        class="terminal-container glass-card mx-auto w-full max-w-3xl rounded-lg p-6 text-left"
+        class="terminal-window glass-card mx-auto w-full max-w-3xl rounded-lg text-left"
       >
-        <div
-          class="text-muted-foreground border-border mb-4 flex items-center gap-2 border-b pb-3 text-xs"
-        >
-          <div class="flex gap-1">
-            <div class="h-3 w-3 rounded-full bg-red-500"></div>
-            <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
-            <div class="h-3 w-3 rounded-full bg-green-500"></div>
+        <div class="terminal-container">
+          <div
+            class="terminal-header text-muted-foreground border-border flex items-center gap-2 border-b px-6 py-3 text-xs"
+          >
+            <div class="flex gap-1">
+              <div class="h-3 w-3 rounded-full bg-red-500"></div>
+              <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
+              <div class="h-3 w-3 rounded-full bg-green-500"></div>
+            </div>
+            <span>gabriel@portfolio:~</span>
           </div>
-          <span>gabriel@portfolio:~</span>
-        </div>
-        <div
-          class="terminal-content font-mono text-sm"
-          style="min-height: 200px;"
-        >
-          {#each visibleLines as line, i}
-            <div class="terminal-line mb-1">
-              {#if line.type === "command"}
+          <div class="terminal-content font-mono text-sm">
+            <div class="terminal-lines">
+              {#each visibleLines as line, i}
+                <div class="terminal-line mb-1">
+                  {#if line.type === "command"}
+                    <div class="flex items-center gap-2">
+                      <span class="text-green-400">$</span>
+                      <span class="command-text"
+                        >{line.displayText.replace("$ ", "")}</span
+                      >
+                      {#if i === visibleLines.length - 1 && isTyping}
+                        <div class="typing-cursor h-4 w-2 bg-green-400"></div>
+                      {/if}
+                    </div>
+                  {:else if line.text === description}
+                    <div
+                      class="text-muted-foreground pl-4 text-xs leading-relaxed"
+                    >
+                      {line.displayText}
+                      {#if i === visibleLines.length - 1 && isTyping}
+                        <span
+                          class="typing-cursor inline-block h-3 w-1 bg-blue-400"
+                        ></span>
+                      {/if}
+                    </div>
+                  {:else}
+                    <div class="output-text pl-4">
+                      {line.displayText}
+                      {#if i === visibleLines.length - 1 && isTyping}
+                        <span
+                          class="typing-cursor inline-block h-4 w-1 bg-blue-400"
+                        ></span>
+                      {/if}
+                    </div>
+                  {/if}
+                </div>
+              {/each}
+              {#if currentLineIndex >= terminalLines.length}
                 <div class="flex items-center gap-2">
                   <span class="text-green-400">$</span>
-                  <span class="command-text"
-                    >{line.displayText.replace("$ ", "")}</span
-                  >
-                  {#if i === visibleLines.length - 1 && isTyping}
-                    <div class="typing-cursor h-4 w-2 bg-green-400"></div>
-                  {/if}
-                </div>
-              {:else if line.text === description}
-                <div class="text-muted-foreground pl-4 text-xs leading-relaxed">
-                  {line.displayText}
-                  {#if i === visibleLines.length - 1 && isTyping}
-                    <span class="typing-cursor inline-block h-3 w-1 bg-blue-400"
-                    ></span>
-                  {/if}
-                </div>
-              {:else}
-                <div class="output-text pl-4">
-                  {line.displayText}
-                  {#if i === visibleLines.length - 1 && isTyping}
-                    <span class="typing-cursor inline-block h-4 w-1 bg-blue-400"
-                    ></span>
-                  {/if}
+                  <div class="blinking-cursor h-4 w-2 bg-green-400"></div>
                 </div>
               {/if}
             </div>
-          {/each}
-          {#if currentLineIndex >= terminalLines.length}
-            <div class="flex items-center gap-2">
-              <span class="text-green-400">$</span>
-              <div class="blinking-cursor h-4 w-2 bg-green-400"></div>
-            </div>
-          {/if}
+          </div>
         </div>
       </div>
 
