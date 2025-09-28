@@ -25,9 +25,9 @@ export async function verifyToken(
   secret: string,
 ): Promise<JWTPayload | null> {
   try {
-    const decoded = (await jwt.verify(token, secret)) as unknown as { 
-      header: object; 
-      payload: JWTPayload 
+    const decoded = (await jwt.verify(token, secret)) as unknown as {
+      header: object;
+      payload: JWTPayload;
     };
 
     if (!decoded || !decoded.payload) {
@@ -35,7 +35,7 @@ export async function verifyToken(
     }
 
     const payload = decoded.payload as JWTPayload;
-    
+
     if (payload.iss && payload.iss !== "portfolio-blog-api") {
       return null;
     }

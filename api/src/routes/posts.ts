@@ -39,7 +39,7 @@ export async function handleGetPosts(
 
     const postsStmt = env.DB.prepare(`
       SELECT
-        p.id, p.title, p.slug, p.excerpt, p.featured_image,
+        p.id, p.title, p.slug, p.content, p.excerpt, p.featured_image,
         p.published_at, p.updated_at, p.created_at,
         u.name as author_name, u.email as author_email
       FROM posts p

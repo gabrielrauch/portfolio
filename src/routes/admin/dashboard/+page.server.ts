@@ -5,11 +5,14 @@ export const load: PageServerLoad = async ({ cookies }) => {
 
   if (token) {
     try {
-      const response = await fetch("https://portfolio-blog-api.gabrielrauchdev.workers.dev/posts/admin", {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      const response = await fetch(
+        "https://portfolio-blog-api.gabrielrauchdev.workers.dev/posts/admin",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       if (response.ok) {
         const data = await response.json();
