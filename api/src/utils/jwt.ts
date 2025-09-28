@@ -25,13 +25,22 @@ export async function verifyToken(
   secret: string,
 ): Promise<JWTPayload | null> {
   try {
-    const decoded = (await jwt.verify(token, secret)) as unknown as JWTPayload;
+    const decoded = (await jwt.verify(token, secret)) as unknown as { 
+      header: object; 
+      payload: JWTPayload 
+    };
 
-    if (!decoded || (decoded.iss && decoded.iss !== "portfolio-blog-api")) {
+    if (!decoded || !decoded.payload) {
       return null;
     }
 
-    return decoded;
+    const payload = decoded.payload as JWTPayload;
+    
+    if (payload.iss && payload.iss !== "portfolio-blog-api") {
+      return null;
+    }
+
+    return payload;
   } catch (error) {
     console.error("JWT verification failed:", error);
     return null;
