@@ -31,13 +31,11 @@
     const currentLine = terminalLines[currentLineIndex];
 
     if (currentCharIndex === 0) {
-      // Starting new line
       visibleLines = [...visibleLines, { ...currentLine, displayText: "" }];
       isTyping = true;
     }
 
     if (currentCharIndex < currentLine.text.length) {
-      // Type next character
       const newDisplayText = currentLine.text.slice(0, currentCharIndex + 1);
       visibleLines = visibleLines.map((line, index) =>
         index === visibleLines.length - 1
@@ -46,11 +44,9 @@
       );
       currentCharIndex++;
 
-      // Vary typing speed for more realistic feel
       const typingSpeed = currentLine.type === "command" ? 80 : 40;
       setTimeout(typeNextCharacter, typingSpeed + Math.random() * 40);
     } else {
-      // Line complete, move to next after pause
       currentLineIndex++;
       currentCharIndex = 0;
       isTyping = false;
@@ -85,7 +81,7 @@
           </div>
           <div class="terminal-content font-mono text-sm">
             <div class="terminal-lines">
-              {#each visibleLines as line, i}
+              {#each visibleLines as line, i (i)}
                 <div class="terminal-line mb-1">
                   {#if line.type === "command"}
                     <div class="flex items-center gap-2">
@@ -134,9 +130,9 @@
       <!-- Main heading -->
       <div class="space-y-4">
         <h1 class="text-4xl font-bold tracking-tight md:text-6xl">
-          <span class="text-muted-foreground">const</span>{" "}
-          <span class="text-primary">developer</span>{" "}
-          <span class="text-muted-foreground">=</span>{" "}
+          <span class="text-muted-foreground">const</span>
+          <span class="text-primary">developer</span>
+          <span class="text-muted-foreground">=</span>
           <span class="text-foreground">"digital craftsman";</span>
         </h1>
         <p class="text-muted-foreground mx-auto max-w-2xl text-lg">

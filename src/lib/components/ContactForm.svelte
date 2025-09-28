@@ -14,7 +14,6 @@
 	async function handleSubmit(event: Event) {
 		event.preventDefault();
 
-		// Basic validation
 		if (!formData.name || formData.name.length < 2) {
 			alert('Name must be at least 2 characters.');
 			return;
@@ -72,7 +71,6 @@
 				<span>$ send-message</span>
 			</h3>
 			<p class="text-muted-foreground text-sm">
-				// Drop me a line about projects, opportunities, or just to say hi
 			</p>
 		</div>
 		<div class="p-6 pt-0">
@@ -91,7 +89,7 @@
 			<form on:submit={handleSubmit} class="space-y-4">
 				<div class="grid grid-cols-1 gap-4 md:grid-cols-2">
 					<div class="space-y-2">
-						<label for="name" class="text-muted-foreground text-sm">// name</label>
+						<label for="name" class="text-muted-foreground text-sm">
 						<input
 							id="name"
 							type="text"
@@ -102,7 +100,7 @@
 					</div>
 
 					<div class="space-y-2">
-						<label for="email" class="text-muted-foreground text-sm">// email</label>
+						<label for="email" class="text-muted-foreground text-sm">
 						<input
 							id="email"
 							type="email"
@@ -114,7 +112,7 @@
 				</div>
 
 				<div class="space-y-2">
-					<label for="subject" class="text-muted-foreground text-sm">// subject</label>
+					<label for="subject" class="text-muted-foreground text-sm">
 					<input
 						id="subject"
 						type="text"
@@ -125,7 +123,7 @@
 				</div>
 
 				<div class="space-y-2">
-					<label for="message" class="text-muted-foreground text-sm">// message</label>
+					<label for="message" class="text-muted-foreground text-sm">
 					<textarea
 						id="message"
 						placeholder="Hello! I'd like to discuss..."

@@ -15,7 +15,6 @@
       }, 2000);
     } catch (err) {
       console.error("Failed to copy email:", err);
-      // Fallback for older browsers
       const textArea = document.createElement("textarea");
       textArea.value = email;
       document.body.appendChild(textArea);
@@ -39,7 +38,6 @@
   <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
     <div class="space-y-6">
       <div class="glass-card rounded-lg p-6">
-        <h3 class="text-primary mb-4 text-lg font-semibold">// Links</h3>
         <div class="space-y-3">
           <button
             on:click={copyEmail}
@@ -75,9 +73,6 @@
         </div>
       </div>
       <div class="glass-card rounded-lg p-6">
-        <h3 class="text-primary mb-4 text-lg font-semibold">
-          // Quick Connect
-        </h3>
         <div class="flex gap-3">
           <a
             href="https://discordapp.com/users/1372249142750871713"

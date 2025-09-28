@@ -7,17 +7,13 @@
   let dropdownElement: HTMLDivElement;
   let buttonElement: HTMLButtonElement;
 
-  // Check if current theme is dark
-  $: {
-    if (typeof window !== "undefined") {
-      isDark = document.documentElement.classList.contains("dark");
-    }
-  }
+  onMount(() => {
+    isDark = document.documentElement.classList.contains("dark");
+  });
 
   function toggleTheme(theme: "light" | "dark" | "system") {
     themeStore.setTheme(theme);
     isOpen = false;
-    // Force update the isDark state
     setTimeout(() => {
       if (typeof window !== "undefined") {
         isDark = document.documentElement.classList.contains("dark");

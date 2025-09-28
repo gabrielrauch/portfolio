@@ -8,7 +8,6 @@
 	onMount(() => {
 		themeStore.init();
 
-		// Listen for system theme changes
 		const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
 		const handleChange = () => {
 			themeStore.init();

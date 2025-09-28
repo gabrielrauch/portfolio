@@ -1,0 +1,43 @@
+# Wrangler configuration for Blog API Worker
+# Copy this to wrangler.toml and fill in your actual values
+
+name = "portfolio-blog-api"
+main = "src/index.ts"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+# Environment variables
+[vars]
+ENVIRONMENT = "production"
+BCRYPT_ROUNDS = 10
+
+
+# D1 Database binding
+[[d1_databases]]
+binding = "DB"
+database_name = "portfolio-blog"
+database_id = "YOUR_D1_DATABASE_ID_HERE"
+migrations_dir = "../database/migrations"
+
+# R2 Storage binding (commented out - enable when file uploads are needed)
+# First enable R2 in Cloudflare Dashboard, then create bucket:
+# wrangler r2 bucket create portfolio-blog-assets
+# [[r2_buckets]]
+# binding = "STORAGE"
+# bucket_name = "portfolio-blog-assets"
+
+# KV Cache binding
+[[kv_namespaces]]
+binding = "CACHE"
+id = "YOUR_KV_NAMESPACE_ID_HERE"
+
+# CORS Configuration
+[env.production]
+name = "portfolio-blog-api"
+
+[env.development]
+name = "portfolio-blog-api-dev"
+
+# For local development
+[env.development.vars]
+ENVIRONMENT = "development"

@@ -1,6 +1,9 @@
 <script lang="ts">
+  import { page } from "$app/stores";
   import { Code, Terminal } from "lucide-svelte";
   import ThemeToggle from "./ThemeToggle.svelte";
+
+  $: currentPath = $page.url.pathname;
 
   function openResume() {
     window.open(
@@ -30,36 +33,56 @@
     </div>
 
     <div class="hidden space-x-6 text-sm md:flex">
-      <button
-        class="hover:text-primary cursor-pointer border-none bg-transparent p-0 text-inherit transition-colors"
-        on:click={() => smoothScrollTo("home")}
+      <a
+        href="/"
+        data-sveltekit-preload-data="hover"
+        class="hover:text-primary transition-colors {currentPath === '/'
+          ? 'text-primary font-semibold'
+          : ''}"
       >
         ~/home
-      </button>
+      </a>
       <button
-        class="hover:text-primary cursor-pointer border-none bg-transparent p-0 text-inherit transition-colors"
+        class="hover:text-primary cursor-pointer border-none bg-transparent p-0 text-inherit transition-colors {currentPath ===
+        '/'
+          ? ''
+          : 'opacity-70'}"
         on:click={() => smoothScrollTo("skills")}
+        disabled={currentPath !== "/"}
       >
         ~/skills
       </button>
       <button
-        class="hover:text-primary cursor-pointer border-none bg-transparent p-0 text-inherit transition-colors"
+        class="hover:text-primary cursor-pointer border-none bg-transparent p-0 text-inherit transition-colors {currentPath ===
+        '/'
+          ? ''
+          : 'opacity-70'}"
         on:click={() => smoothScrollTo("about")}
+        disabled={currentPath !== "/"}
       >
         ~/about
       </button>
       <button
-        class="hover:text-primary cursor-pointer border-none bg-transparent p-0 text-inherit transition-colors"
+        class="hover:text-primary cursor-pointer border-none bg-transparent p-0 text-inherit transition-colors {currentPath ===
+        '/'
+          ? ''
+          : 'opacity-70'}"
         on:click={() => smoothScrollTo("contact")}
+        disabled={currentPath !== "/"}
       >
         ~/contact
       </button>
-      <span
-        class="text-muted-foreground cursor-not-allowed opacity-50"
-        title="Coming Soon"
+      <a
+        href="/blog"
+        data-sveltekit-preload-data="hover"
+        class="hover:text-primary transition-colors {currentPath.startsWith(
+          '/blog'
+        )
+          ? 'text-primary font-semibold'
+          : ''}"
       >
         ~/blog
-      </span>
+      </a>
     </div>
 
     <div class="flex items-center gap-2">
