@@ -37,6 +37,11 @@ export default defineConfig(
         svelteConfig,
       },
     },
-    rules: {},
+    rules: {
+      // Disable navigation resolution rule for portfolio site deployed to root domain
+      "svelte/no-navigation-without-resolve": "off",
+      // Allow @html for blog content - content is trusted
+      "svelte/no-at-html-tags": "off",
+    },
   },
 );
