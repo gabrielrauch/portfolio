@@ -29,7 +29,6 @@
       token === "null" ||
       token === "undefined"
     ) {
-      // Clear any corrupted tokens
       localStorage.removeItem("admin_token");
       localStorage.removeItem("admin_user");
       document.cookie = "admin_token=; path=/; max-age=0";
@@ -160,7 +159,6 @@
 </svelte:head>
 
 <main class="min-h-screen bg-background">
-  <!-- Header -->
   <header class="border-b border-border bg-card/50 backdrop-blur">
     <div class="container mx-auto px-4 py-4">
       <div class="flex items-center justify-between">
@@ -197,7 +195,6 @@
     </div>
   </header>
 
-  <!-- Content -->
   <div class="container mx-auto px-4 py-8">
     {#if error}
       <div class="p-4 bg-red-500/10 border border-red-500/20 rounded-lg mb-6">
@@ -210,7 +207,6 @@
         <p class="text-blue-400">Loading dashboard...</p>
       </div>
     {/if}
-    <!-- Stats -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
       <div class="glass border border-border rounded-lg p-6">
         <h3 class="text-lg font-semibold text-foreground mb-2">Total Posts</h3>
@@ -234,7 +230,6 @@
       </div>
     </div>
 
-    <!-- Posts Table -->
     <div class="glass border border-border rounded-lg overflow-hidden">
       <div class="p-6 border-b border-border">
         <h2 class="text-xl font-semibold text-foreground">All Posts</h2>
@@ -353,7 +348,6 @@
   </div>
 </main>
 
-<!-- Create Post Modal -->
 {#if showCreateModal}
   <div
     class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"

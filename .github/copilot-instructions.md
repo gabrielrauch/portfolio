@@ -18,6 +18,7 @@ This is a **SvelteKit 5** portfolio website with modern tooling, deployed to **C
 ### Critical Files
 
 #### Frontend (SvelteKit)
+
 - `src/routes/+page.svelte` - Main portfolio page with animation orchestration
 - `src/routes/+layout.svelte` - Global theme initialization and navigation
 - `src/routes/blog/+page.svelte` - Blog listing page
@@ -31,6 +32,7 @@ This is a **SvelteKit 5** portfolio website with modern tooling, deployed to **C
 - `svelte.config.js` - Cloudflare adapter configuration
 
 #### Backend (Cloudflare Workers)
+
 - `api/src/index.ts` - Main worker entry point with routing
 - `api/src/routes/auth.ts` - Authentication endpoints
 - `api/src/routes/posts.ts` - Blog post CRUD endpoints
@@ -40,6 +42,7 @@ This is a **SvelteKit 5** portfolio website with modern tooling, deployed to **C
 - `api/wrangler.toml` - Cloudflare Workers configuration
 
 #### Database
+
 - `database/migrations/` - D1 database migration files
 - `database/seed.sql` - Initial database seeding
 
@@ -48,6 +51,7 @@ This is a **SvelteKit 5** portfolio website with modern tooling, deployed to **C
 ### Essential Commands
 
 #### Frontend Development
+
 ```bash
 npm run dev          # Development server with HMR
 npm run build        # Production build for Cloudflare Pages
@@ -58,6 +62,7 @@ npm run format       # Auto-format with Prettier
 ```
 
 #### API Development (in api/ directory)
+
 ```bash
 npm run dev          # Start Cloudflare Workers dev server
 npm run deploy       # Deploy Workers API to production

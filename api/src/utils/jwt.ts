@@ -14,7 +14,7 @@ export async function generateToken(
     email: user.email,
     role: user.role,
     iss: "portfolio-blog-api",
-    exp: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60, // 7 days
+    exp: Math.floor(Date.now() / 1000) + 7 * 24 * 60 * 60,
   };
 
   return await jwt.sign(payload, secret);

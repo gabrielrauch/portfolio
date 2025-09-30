@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import ShareIcon from "$lib/components/blog/ShareIcon.svelte";
   import {
     calculateReadTime,
     formatRelativeDate,
@@ -23,7 +24,6 @@
 </svelte:head>
 
 <main class="min-h-screen bg-background">
-  <!-- Breadcrumb -->
   <nav class="py-4 border-b border-border">
     <div class="container mx-auto px-4">
       <ol class="flex items-center gap-2 text-sm text-muted-foreground">
@@ -46,7 +46,6 @@
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <section class="py-16 border-b border-border">
     <div class="container mx-auto px-4">
       <div class="max-w-3xl mx-auto text-center">
@@ -62,7 +61,6 @@
     </div>
   </section>
 
-  <!-- Blog Posts -->
   <section class="py-16">
     <div class="container mx-auto px-4">
       {#if data.error}
@@ -105,7 +103,6 @@
           </a>
         </div>
       {:else}
-        <!-- Posts Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {#each data.posts as post (post.slug)}
             <article
@@ -154,7 +151,7 @@
                     href="/blog/{post.slug}"
                     class="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
                   >
-                    Read more
+                    read more
                     <svg
                       class="h-4 w-4"
                       viewBox="0 0 24 24"
@@ -166,20 +163,30 @@
                     </svg>
                   </a>
 
-                  <div
-                    class="flex items-center gap-1 text-xs text-muted-foreground"
-                  >
-                    <svg
-                      class="h-3 w-3"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      stroke-width="2"
+                  <div class="flex items-center gap-3">
+                    <div
+                      class="flex items-center gap-1 text-xs text-muted-foreground"
                     >
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                      <circle cx="12" cy="12" r="3" />
-                    </svg>
-                    <span>{calculateReadTime(post.content || "")}</span>
+                      <svg
+                        class="h-3 w-3"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                      >
+                        <path
+                          d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"
+                        />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>
+                      <span>{calculateReadTime(post.content || "")}</span>
+                    </div>
+
+                    <ShareIcon
+                      title={post.title}
+                      slug={post.slug}
+                      className="text-muted-foreground hover:text-primary"
+                    />
                   </div>
                 </div>
               </div>
@@ -187,7 +194,6 @@
           {/each}
         </div>
 
-        <!-- Pagination -->
         {#if data.pagination.totalPages > 1}
           <div class="flex items-center justify-center gap-2">
             <button

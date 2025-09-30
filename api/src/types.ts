@@ -63,7 +63,7 @@ export interface JWTPayload {
   role: string;
   iat: number;
   exp: number;
-  iss?: string; // issuer
+  iss?: string;
 }
 
 export interface APIResponse<T = unknown> {
@@ -86,7 +86,7 @@ export interface PaginatedResponse<T> {
 
 export interface Env {
   DB: D1Database;
-  STORAGE?: R2Bucket; // Optional - only when file uploads are enabled
+  STORAGE?: R2Bucket;
   CACHE: KVNamespace;
   JWT_SECRET: string;
   ENVIRONMENT: string;

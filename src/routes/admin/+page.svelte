@@ -19,7 +19,6 @@
     ) {
       goto("/admin/dashboard");
     } else if (token) {
-      // Clear corrupted tokens
       localStorage.removeItem("admin_token");
       localStorage.removeItem("admin_user");
       document.cookie = "admin_token=; path=/; max-age=0";

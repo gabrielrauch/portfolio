@@ -64,7 +64,6 @@
 >
   <div class="container mx-auto">
     <div class="mx-auto max-w-4xl space-y-8 text-center">
-      <!-- Terminal-style header -->
       <div
         class="terminal-window glass-card mx-auto w-full max-w-3xl rounded-lg text-left"
       >
@@ -127,7 +126,6 @@
         </div>
       </div>
 
-      <!-- Main heading -->
       <div class="space-y-4">
         <h1 class="text-4xl font-bold tracking-tight md:text-6xl">
           <span class="text-muted-foreground">const</span>
@@ -140,7 +138,6 @@
         </p>
       </div>
 
-      <!-- Action buttons -->
       <div class="flex flex-wrap justify-center gap-4 pt-6">
         <a
           href={resumeUrl}
@@ -152,7 +149,6 @@
         </a>
       </div>
 
-      <!-- Social links -->
       <div class="flex justify-center gap-4 pt-4">
         <a
           href="https://github.com/gabrielrauch"

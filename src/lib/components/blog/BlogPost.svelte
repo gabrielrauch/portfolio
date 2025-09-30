@@ -7,6 +7,7 @@
   } from "$lib/utils/blog";
   import { marked } from "marked";
   import { onMount } from "svelte";
+  import ShareButton from "./ShareButton.svelte";
 
   interface Props {
     post: BlogPost;
@@ -46,7 +47,6 @@
 </svelte:head>
 
 <article class="max-w-4xl mx-auto px-4 py-8">
-  <!-- Breadcrumb -->
   <nav class="mb-8">
     <ol class="flex items-center gap-2 text-sm text-muted-foreground">
       <li>
@@ -89,7 +89,6 @@
     </ol>
   </nav>
 
-  <!-- Article Header -->
   <header class="mb-8">
     {#if post.featured_image}
       <div class="aspect-video mb-8 rounded-lg overflow-hidden">
@@ -129,13 +128,10 @@
     {/if}
   </header>
 
-  <!-- Article Content -->
   <div class="prose prose-lg max-w-none">
-    <!-- eslint-disable-next-line svelte/no-at-html-tags -->
     {@html contentHtml}
   </div>
 
-  <!-- Article Footer -->
   <footer class="mt-12 pt-8 border-t border-border">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-4">
@@ -149,35 +145,17 @@
           </div>
           <div>
             <p class="font-medium text-foreground">{post.author_name}</p>
-            <p class="text-sm text-muted-foreground">Author</p>
+            <p class="text-sm text-muted-foreground">author</p>
           </div>
         </div>
       </div>
 
       <div class="flex items-center gap-4">
-        <button
-          class="inline-flex items-center gap-2 px-4 py-2 text-sm border border-border rounded-lg hover:bg-muted transition-colors"
-          onclick={() => {
-            if (navigator.share) {
-              navigator.share({ title: post.title, url: window.location.href });
-            } else {
-              navigator.clipboard.writeText(window.location.href);
-            }
-          }}
-        >
-          <svg
-            class="h-4 w-4"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-          >
-            <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-            <polyline points="16,6 12,2 8,6" />
-            <line x1="12" y1="2" x2="12" y2="15" />
-          </svg>
-          Share
-        </button>
+        <ShareButton
+          title={post.title}
+          text={post.excerpt || `Check out this post: ${post.title}`}
+          hashtags={["blog", "tech", "development"]}
+        />
 
         <a
           href="/blog"

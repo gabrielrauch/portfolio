@@ -5,6 +5,7 @@
     formatRelativeDate,
     truncateExcerpt,
   } from "$lib/utils/blog";
+  import ShareIcon from "./ShareIcon.svelte";
 
   interface Props {
     posts: BlogPost[];
@@ -80,7 +81,7 @@
                   href="/blog/{post.slug}"
                   class="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium"
                 >
-                  Read more
+                  read more
                   <svg
                     class="h-4 w-4"
                     viewBox="0 0 24 24"
@@ -92,20 +93,28 @@
                   </svg>
                 </a>
 
-                <div
-                  class="flex items-center gap-1 text-xs text-muted-foreground"
-                >
-                  <svg
-                    class="h-3 w-3"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
+                <div class="flex items-center gap-3">
+                  <div
+                    class="flex items-center gap-1 text-xs text-muted-foreground"
                   >
-                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                  <span>{calculateReadTime(post.content || "")}</span>
+                    <svg
+                      class="h-3 w-3"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                    <span>{calculateReadTime(post.content || "")}</span>
+                  </div>
+
+                  <ShareIcon
+                    title={post.title}
+                    slug={post.slug}
+                    className="text-muted-foreground hover:text-primary"
+                  />
                 </div>
               </div>
             </div>
