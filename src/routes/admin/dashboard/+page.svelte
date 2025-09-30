@@ -361,10 +361,11 @@
 
       <div class="p-6 space-y-4">
         <div>
-          <label class="block text-sm font-medium text-foreground mb-2"
+          <label for="new-post-title" class="block text-sm font-medium text-foreground mb-2"
             >Title</label
           >
           <input
+            id="new-post-title"
             type="text"
             bind:value={newPost.title}
             class="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
@@ -373,10 +374,11 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-foreground mb-2"
+          <label for="new-post-excerpt" class="block text-sm font-medium text-foreground mb-2"
             >Excerpt (Optional)</label
           >
           <textarea
+            id="new-post-excerpt"
             bind:value={newPost.excerpt}
             rows="3"
             class="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none"
@@ -385,10 +387,11 @@
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-foreground mb-2"
+          <label for="new-post-content" class="block text-sm font-medium text-foreground mb-2"
             >Content (Markdown)</label
           >
           <textarea
+            id="new-post-content"
             bind:value={newPost.content}
             rows="12"
             class="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary resize-none font-mono text-sm"
@@ -405,10 +408,11 @@ console.log('Hello, world!');
         </div>
 
         <div>
-          <label class="block text-sm font-medium text-foreground mb-2"
+          <label for="new-post-status" class="block text-sm font-medium text-foreground mb-2"
             >Status</label
           >
           <select
+            id="new-post-status"
             bind:value={newPost.status}
             class="w-full px-3 py-2 border border-border rounded-lg bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-primary"
           >
