@@ -16,7 +16,7 @@
     "@types/bcryptjs": "^2.4.6",
     "@types/jsonwebtoken": "^9.0.10",
     "typescript": "^5.0.0",
-    "wrangler": "^3.78.12"
+    "wrangler": "^4.40.3"
   },
   "dependencies": {
     "@tsndr/cloudflare-worker-jwt": "^3.2.0",
