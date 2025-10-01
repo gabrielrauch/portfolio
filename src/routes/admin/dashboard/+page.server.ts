@@ -1,4 +1,7 @@
 import type { PageServerLoad } from "./$types";
+import templateConfig from "../../../../template.config.json";
+
+const API_BASE_URL = templateConfig.api?.baseUrl || "";
 
 export const load: PageServerLoad = async ({ cookies }) => {
   const token = cookies.get("admin_token");
@@ -6,7 +9,7 @@ export const load: PageServerLoad = async ({ cookies }) => {
   if (token) {
     try {
       const response = await fetch(
-        "https://portfolio-blog-api.gabrielrauchdev.workers.dev/posts/admin",
+        `${API_BASE_URL}/posts/admin`,
         {
           headers: {
             Authorization: `Bearer ${token}`,

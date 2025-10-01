@@ -7,7 +7,9 @@
   let loading = $state(false);
   let error = $state("");
 
-  const API_BASE_URL = "https://portfolio-blog-api.gabrielrauchdev.workers.dev";
+  import { config } from "$lib/config";
+  
+  const API_BASE_URL = config.api?.baseUrl || "";
 
   onMount(() => {
     const token = localStorage.getItem("admin_token");

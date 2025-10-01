@@ -1,0 +1,29 @@
+{
+  "$schema": "./template.config.schema.json",
+  "personal": {
+    "name": "Your Name",
+    "title": "Your Title",
+    "description": "Your professional description here. Describe your experience, skills, and what you focus on.",
+    "email": "your.email@example.com",
+    "location": "Your City, State/Country",
+    "availability": "Available for work",
+    "branding": "yourname.sh"
+  },
+  "professional": {
+    "yearsOfExperience": 5,
+    "bio": "Your professional bio here. Describe your background, industries you've worked in, and your expertise.",
+    "personalBio": "Your personal statement. Share your values, approach to work, and what drives you.",
+    "focus": "Your tech stack focus areas (e.g., Node.js, TypeScript, React, Go, AWS)",
+    "interests": "Your professional interests (e.g., Fintech, AI/ML, IaC, DX)"
+  },
+  "social": {
+    "github": "yourusername",
+    "linkedin": "yourusername",
+    "discord": null,
+    "whatsapp": null,
+    "resumeUrl": "https://example.com/your-resume.pdf"
+  },
+  "api": {
+    "baseUrl": "https://your-api.workers.dev"
+  }
+}

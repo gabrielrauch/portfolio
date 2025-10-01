@@ -1,4 +1,6 @@
-const API_BASE_URL = "https://portfolio-blog-api.gabrielrauchdev.workers.dev";
+import templateConfig from "../../../template.config.json";
+
+const API_BASE_URL = templateConfig.api?.baseUrl || "";
 
 export interface BlogPost {
   id: number;

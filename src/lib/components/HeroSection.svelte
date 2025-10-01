@@ -2,13 +2,12 @@
   import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-svelte";
   import { Download } from "lucide-svelte";
   import { onMount } from "svelte";
+  import { config } from "$lib/config";
 
-  export let name = "Gabriel Rauch";
-  export let title = "Full Stack Engineer";
-  export let description =
-    "Experienced in building scalable and resilient web applications using modern technologies. Focused on clean architecture, performance optimization, and delivering a seamless developer experience.";
-  export let resumeUrl =
-    "https://drive.google.com/file/d/1iJe38G4H4gP-T9vTW2zc7EYd1Lk0sngP/view?usp=sharing";
+  export let name = config.personal.name;
+  export let title = config.personal.title;
+  export let description = config.personal.description;
+  export let resumeUrl = config.social.resumeUrl;
 
   const terminalLines = [
     { type: "command", text: "$ whoami" },
@@ -76,7 +75,7 @@
               <div class="h-3 w-3 rounded-full bg-yellow-500"></div>
               <div class="h-3 w-3 rounded-full bg-green-500"></div>
             </div>
-            <span>gabriel@portfolio:~</span>
+            <span>{name.split(' ')[0].toLowerCase()}@portfolio:~</span>
           </div>
           <div class="terminal-content font-mono text-sm">
             <div class="terminal-lines">
@@ -151,14 +150,14 @@
 
       <div class="flex justify-center gap-4 pt-4">
         <a
-          href="https://github.com/gabrielrauch"
+          href="https://github.com/{config.social.github}"
           class="focus-visible:ring-ring hover:bg-accent hover:text-accent-foreground inline-flex h-10 w-10 items-center justify-center rounded-md font-mono text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50"
           aria-label="GitHub Profile"
         >
           <IconBrandGithub class="h-5 w-5" />
         </a>
         <a
-          href="https://linkedin.com/in/gabrielrauch"
+          href="https://linkedin.com/in/{config.social.linkedin}"
           class="focus-visible:ring-ring hover:bg-accent hover:text-accent-foreground inline-flex h-10 w-10 items-center justify-center rounded-md font-mono text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50"
           aria-label="LinkedIn Profile"
         >

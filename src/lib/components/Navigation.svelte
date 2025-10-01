@@ -2,14 +2,12 @@
   import { page } from "$app/stores";
   import { Code, Terminal } from "lucide-svelte";
   import ThemeToggle from "./ThemeToggle.svelte";
+  import { config } from "$lib/config";
 
   $: currentPath = $page.url.pathname;
 
   function openResume() {
-    window.open(
-      "https://drive.google.com/file/d/1iJe38G4H4gP-T9vTW2zc7EYd1Lk0sngP/view?usp=sharing",
-      "_blank"
-    );
+    window.open(config.social.resumeUrl, "_blank");
   }
 
   function smoothScrollTo(targetId: string) {
@@ -29,7 +27,7 @@
   <div class="container flex h-14 items-center justify-between">
     <div class="flex items-center gap-2 text-lg font-bold">
       <Terminal class="h-5 w-5" />
-      <span>gabrielrauch.sh</span>
+      <span>{config.personal.branding}</span>
     </div>
 
     <div class="hidden space-x-6 text-sm md:flex">

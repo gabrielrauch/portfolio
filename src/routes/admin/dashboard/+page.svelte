@@ -5,7 +5,9 @@
   import type { PageData } from "./$types";
   let { data }: { data: PageData } = $props();
 
-  const API_BASE_URL = "https://portfolio-blog-api.gabrielrauchdev.workers.dev";
+  import { config } from "$lib/config";
+  
+  const API_BASE_URL = config.api?.baseUrl || "";
 
   let showCreateModal = $state(false);
   let newPost = $state({
