@@ -7,7 +7,15 @@
   "properties": {
     "personal": {
       "type": "object",
-      "required": ["name", "title", "description", "email", "location", "availability", "branding"],
+      "required": [
+        "name",
+        "title",
+        "description",
+        "email",
+        "location",
+        "availability",
+        "branding"
+      ],
       "properties": {
         "name": {
           "type": "string",
@@ -42,7 +50,13 @@
     },
     "professional": {
       "type": "object",
-      "required": ["yearsOfExperience", "bio", "personalBio", "focus", "interests"],
+      "required": [
+        "yearsOfExperience",
+        "bio",
+        "personalBio",
+        "focus",
+        "interests"
+      ],
       "properties": {
         "yearsOfExperience": {
           "type": "number",

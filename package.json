@@ -1,8 +1,22 @@
 {
-  "name": "portfolio-svelte",
-  "private": true,
+  "name": "portfolio-template",
   "version": "1.0.0",
+  "description": "A modern, customizable portfolio template built with SvelteKit 5 and Tailwind CSS v4",
   "type": "module",
+  "keywords": [
+    "portfolio",
+    "template",
+    "sveltekit",
+    "tailwind",
+    "typescript",
+    "cloudflare-pages",
+    "blog"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gabrielrauch/portfolio.git"
+  },
+  "license": "MIT",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",

@@ -8,14 +8,11 @@ export const load: PageServerLoad = async ({ cookies }) => {
 
   if (token) {
     try {
-      const response = await fetch(
-        `${API_BASE_URL}/posts/admin`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await fetch(`${API_BASE_URL}/posts/admin`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
+      });
 
       if (response.ok) {
         const data = await response.json();

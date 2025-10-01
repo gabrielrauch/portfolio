@@ -1,4 +1,4 @@
-import templateConfig from '../../template.config.json';
+import templateConfig from "../../template.config.json";
 
 export interface PortfolioConfig {
   personal: {

@@ -1,5 +1,13 @@
 # Wrangler configuration for Blog API Worker
 # Copy this to wrangler.toml and fill in your actual values
+#
+# Setup instructions:
+# 1. Create D1 database: wrangler d1 create portfolio-blog
+# 2. Create KV namespace: wrangler kv:namespace create CACHE
+# 3. Copy this file to wrangler.toml
+# 4. Fill in the IDs from steps 1 and 2
+# 5. Run migrations: npm run db:migrate
+# 6. Deploy: npm run deploy
 
 name = "portfolio-blog-api"
 main = "src/index.ts"
@@ -13,6 +21,7 @@ BCRYPT_ROUNDS = 10
 
 
 # D1 Database binding
+# Get database_id from: wrangler d1 create portfolio-blog
 [[d1_databases]]
 binding = "DB"
 database_name = "portfolio-blog"
@@ -27,6 +36,7 @@ migrations_dir = "../database/migrations"
 # bucket_name = "portfolio-blog-assets"
 
 # KV Cache binding
+# Get id from: wrangler kv:namespace create CACHE
 [[kv_namespaces]]
 binding = "CACHE"
 id = "YOUR_KV_NAMESPACE_ID_HERE"
