@@ -1,6 +1,7 @@
 <script lang="ts">
   import { page } from "$app/stores";
   import { Terminal } from "lucide-svelte";
+  import { config } from "$lib/config";
 
   function smoothScrollTo(targetId: string) {
     const element = document.getElementById(targetId);
@@ -24,7 +25,8 @@
       <div class="flex items-center gap-2">
         <Terminal class="h-4 w-4" />
         <span>
-          © {new Date().getFullYear()} gabrielrauch.sh --version {version}
+          © {new Date().getFullYear()}
+          {config.personal.branding} --version {version}
         </span>
       </div>
       <div

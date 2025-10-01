@@ -5,6 +5,7 @@
   import HeroSection from "$lib/components/HeroSection.svelte";
   import Navigation from "$lib/components/Navigation.svelte";
   import TechStack from "$lib/components/TechStack.svelte";
+  import { config } from "$lib/config";
   import { onMount } from "svelte";
 
   let sectionsVisible = {
@@ -37,6 +38,17 @@
     return () => observer.disconnect();
   });
 </script>
+
+<svelte:head>
+  <title>{config.personal.name} - {config.personal.title}</title>
+  <meta name="description" content={config.personal.description} />
+  <meta property="og:title" content="{config.personal.name} - {config.personal.title}" />
+  <meta property="og:description" content={config.personal.description} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{config.personal.name} - {config.personal.title}" />
+  <meta name="twitter:description" content={config.personal.description} />
+</svelte:head>
 
 <div class="bg-background text-foreground min-h-screen font-mono">
   <Navigation />

@@ -20,6 +20,8 @@ A modern, customizable portfolio website template built with **SvelteKit 5**, **
 
 ## 🚀 Quick Start
 
+> **New to this template?** Check out [QUICKSTART.md](./QUICKSTART.md) for a 5-minute setup guide!
+
 ### Using this Template
 
 1. **Use this template** (click the "Use this template" button on GitHub)
